@@ -1,6 +1,7 @@
 package command
 
 import (
+	"bytes"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
@@ -122,7 +123,7 @@ func TestZeroThirteenUpgrade_success(t *testing.T) {
 				},
 			}
 
-			if code := c.Run(nil); code != 0 {
+			if code := c.Run([]string{"-yes"}); code != 0 {
 				t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
 			}
 
@@ -172,7 +173,7 @@ func TestZeroThirteenUpgrade_submodule(t *testing.T) {
 	}
 
 	// Here we pass a target module directory to process
-	if code := c.Run([]string{"module"}); code != 0 {
+	if code := c.Run([]string{"-yes", "module"}); code != 0 {
 		t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
 	}
 
@@ -202,7 +203,7 @@ func TestZeroThirteenUpgrade_skippedFiles(t *testing.T) {
 		},
 	}
 
-	if code := c.Run(nil); code != 0 {
+	if code := c.Run([]string{"-yes"}); code != 0 {
 		t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
 	}
 
@@ -217,6 +218,67 @@ func TestZeroThirteenUpgrade_skippedFiles(t *testing.T) {
 	}
 	if !strings.Contains(errMsg, `The override configuration file "bar_override.tf" was skipped`) {
 		t.Fatal("missing override skipped file warning:", errMsg)
+	}
+}
+
+func TestZeroThirteenUpgrade_confirm(t *testing.T) {
+	inputPath := testFixturePath(path.Join("013upgrade-explicit-providers", "input"))
+
+	td := tempDir(t)
+	copy.CopyDir(inputPath, td)
+	defer os.RemoveAll(td)
+	defer testChdir(t, td)()
+
+	ui := new(cli.MockUi)
+	inputBuf := &bytes.Buffer{}
+	ui.InputReader = inputBuf
+	inputBuf.WriteString("yes")
+	c := &ZeroThirteenUpgradeCommand{
+		Meta: Meta{
+			testingOverrides: metaOverridesForProvider(testProvider()),
+			Ui:               ui,
+		},
+	}
+
+	if code := c.Run(nil); code != 0 {
+		t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
+	}
+
+	output := ui.OutputWriter.String()
+	if !strings.Contains(output, "Upgrade complete") {
+		t.Fatal("unexpected output:", output)
+	}
+}
+
+func TestZeroThirteenUpgrade_cancel(t *testing.T) {
+	inputPath := testFixturePath(path.Join("013upgrade-explicit-providers", "input"))
+
+	td := tempDir(t)
+	copy.CopyDir(inputPath, td)
+	defer os.RemoveAll(td)
+	defer testChdir(t, td)()
+
+	ui := new(cli.MockUi)
+	inputBuf := &bytes.Buffer{}
+	ui.InputReader = inputBuf
+	inputBuf.WriteString("no")
+	c := &ZeroThirteenUpgradeCommand{
+		Meta: Meta{
+			testingOverrides: metaOverridesForProvider(testProvider()),
+			Ui:               ui,
+		},
+	}
+
+	if code := c.Run(nil); code != 0 {
+		t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
+	}
+
+	output := ui.OutputWriter.String()
+	if !strings.Contains(output, "Upgrade cancelled") {
+		t.Fatal("unexpected output:", output)
+	}
+	if strings.Contains(output, "Upgrade complete") {
+		t.Fatal("unexpected output:", output)
 	}
 }
 
@@ -236,7 +298,7 @@ func TestZeroThirteenUpgrade_unsupportedVersion(t *testing.T) {
 		},
 	}
 
-	if code := c.Run(nil); code == 0 {
+	if code := c.Run([]string{"-yes"}); code == 0 {
 		t.Fatal("expected error, got:", ui.OutputWriter)
 	}
 
@@ -308,7 +370,7 @@ func TestZeroThirteenUpgrade_empty(t *testing.T) {
 		},
 	}
 
-	if code := c.Run(nil); code == 0 {
+	if code := c.Run([]string{"-yes"}); code == 0 {
 		t.Fatal("expected error, got:", ui.OutputWriter)
 	}
 
