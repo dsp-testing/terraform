@@ -88,7 +88,7 @@ require (
 	github.com/masterzen/winrm v0.0.0-20190223112901-5e5c9a7fe54b
 	github.com/mattn/go-colorable v0.1.1
 	github.com/mattn/go-shellwords v1.0.4
-	github.com/miekg/dns v1.0.8 // indirect
+	github.com/miekg/dns v1.1.25 // indirect
 	github.com/mitchellh/cli v1.0.0
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
 	github.com/mitchellh/copystructure v1.0.0

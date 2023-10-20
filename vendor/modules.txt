@@ -466,7 +466,7 @@ github.com/mattn/go-isatty
 # github.com/mattn/go-shellwords v1.0.4
 ## explicit
 github.com/mattn/go-shellwords
-# github.com/miekg/dns v1.0.8
+# github.com/miekg/dns v1.1.25
 ## explicit
 # github.com/mitchellh/cli v1.0.0
 ## explicit
