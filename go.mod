@@ -35,7 +35,7 @@ require (
 	github.com/dylanmei/iso8601 v0.1.0 // indirect
 	github.com/dylanmei/winrmtest v0.0.0-20190225150635-99b7fe2fddf1
 	github.com/go-test/deep v1.0.3
-	github.com/gogo/protobuf v1.2.0 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/groupcache v0.0.0-20180513044358-24b0969c4cb7 // indirect
 	github.com/golang/mock v1.3.1
 	github.com/golang/protobuf v1.3.2
@@ -126,12 +126,12 @@ require (
 	go.uber.org/atomic v1.3.2 // indirect
 	go.uber.org/multierr v1.1.0 // indirect
 	go.uber.org/zap v1.9.1 // indirect
-	golang.org/x/crypto v0.0.0-20191202143827-86a70503ff7e
-	golang.org/x/mod v0.2.0
-	golang.org/x/net v0.0.0-20200202094626-16171245cfb2
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+	golang.org/x/mod v0.3.0
+	golang.org/x/net v0.0.0-20201021035429-f5854403a974
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
-	golang.org/x/sys v0.0.0-20191128015809-6d18c012aee9
-	golang.org/x/tools v0.0.0-20191203134012-c197fd4bf371
+	golang.org/x/sys v0.0.0-20200930185726-fdedc70b468f
+	golang.org/x/tools v0.0.0-20210106214847-113979e3529a
 	google.golang.org/api v0.9.0
 	google.golang.org/grpc v1.21.1
 	gopkg.in/ini.v1 v1.42.0 // indirect
