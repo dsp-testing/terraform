@@ -38,9 +38,9 @@ require (
 	github.com/gogo/protobuf v1.2.0 // indirect
 	github.com/golang/groupcache v0.0.0-20180513044358-24b0969c4cb7 // indirect
 	github.com/golang/mock v1.3.1
-	github.com/golang/protobuf v1.3.2
+	github.com/golang/protobuf v1.4.3
 	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
-	github.com/google/go-cmp v0.3.1
+	github.com/google/go-cmp v0.5.5
 	github.com/google/uuid v1.1.1
 	github.com/gophercloud/gophercloud v0.10.1-0.20200424014253-c3bfe50899e5
 	github.com/gophercloud/utils v0.0.0-20200423144003-7c72efc7435d
@@ -78,7 +78,6 @@ require (
 	github.com/jmespath/go-jmespath v0.3.0
 	github.com/jonboulle/clockwork v0.1.0 // indirect
 	github.com/joyent/triton-go v0.0.0-20180313100802-d8f9c0314926
-	github.com/json-iterator/go v1.1.5 // indirect
 	github.com/jtolds/gls v4.2.1+incompatible // indirect
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/keybase/go-crypto v0.0.0-20161004153544-93f5b35093ba // indirect
@@ -100,14 +99,12 @@ require (
 	github.com/mitchellh/panicwrap v1.0.0
 	github.com/mitchellh/prefixedio v0.0.0-20190213213902-5733675afd51
 	github.com/mitchellh/reflectwalk v1.0.0
-	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/packer-community/winrmcp v0.0.0-20180102160824-81144009af58
 	github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c // indirect
 	github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4
 	github.com/pkg/errors v0.9.1
 	github.com/posener/complete v1.2.1
-	github.com/prometheus/client_golang v0.9.3-0.20190127221311-3c4408c8b829 // indirect
+	github.com/prometheus/client_golang v1.11.1 // indirect
 	github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 // indirect
 	github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d // indirect
 	github.com/smartystreets/goconvey v0.0.0-20180222194500-ef6db91d284a // indirect
@@ -126,16 +123,16 @@ require (
 	go.uber.org/atomic v1.3.2 // indirect
 	go.uber.org/multierr v1.1.0 // indirect
 	go.uber.org/zap v1.9.1 // indirect
-	golang.org/x/crypto v0.0.0-20191202143827-86a70503ff7e
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	golang.org/x/mod v0.2.0
-	golang.org/x/net v0.0.0-20200202094626-16171245cfb2
+	golang.org/x/net v0.0.0-20200625001655-4c5254603344
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
-	golang.org/x/sys v0.0.0-20191128015809-6d18c012aee9
+	golang.org/x/sys v0.0.0-20210603081109-ebe580a85c40
 	golang.org/x/tools v0.0.0-20191203134012-c197fd4bf371
 	google.golang.org/api v0.9.0
 	google.golang.org/grpc v1.21.1
 	gopkg.in/ini.v1 v1.42.0 // indirect
-	gopkg.in/yaml.v2 v2.2.7
+	gopkg.in/yaml.v2 v2.3.0
 )
 
 go 1.14
